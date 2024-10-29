@@ -1,8 +1,5 @@
 import OpenAI from 'openai';
 
-// We'll need to install OpenAI first
-// Run: npm install openai
-
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -11,7 +8,6 @@ export async function POST(request) {
   try {
     const { prompt, isCoalMode } = await request.json();
 
-    // Create system message based on mode
     const systemMessage = isCoalMode
       ? "You are a sarcastic gift advisor with a witty, roast-like sense of humor. Give a funny, slightly mean (but not cruel) gift suggestion with a snarky explanation. Use emojis. Keep responses short and punchy."
       : "You are a helpful gift advisor. Suggest thoughtful, personalized gifts with a brief explanation. Use emojis. Keep responses short and sweet.";

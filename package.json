@@ -1,22 +1,29 @@
 {
-  "name": "new-gift-bot",
+  "name": "gift-bot",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
-    "next": "15.0.2",
+    "lucide-react": "^0.454.0",
+    "next": "14.1.0",
     "openai": "^4.68.4",
-    "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.2",
+    "@testing-library/react": "^14.0.0",
     "eslint": "^8",
-    "eslint-config-next": "15.0.2",
+    "eslint-config-next": "14.1.0",
+    "jest": "^29.6.4",
+    "jest-environment-jsdom": "^29.6.4",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
   }

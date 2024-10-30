@@ -1,6 +1,8 @@
+// Update your src/app/page.js file to include these changes
 'use client'
 import { useState } from 'react';
 import LoadingSpinner from '@/app/components/LoadingSpinner';
+
 const MOCK_RESPONSES = {
   normal: [
     "🎁 A personalized star map of their birthday night sky - because they're stellar (even if they don't know it)!",
@@ -22,15 +24,14 @@ export default function GiftBot() {
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    setResult(''); // Clear previous result while loading
+    setResult(''); // Clear previous result
     
     if (useMockData) {
       // Use mock data during development
-      setTimeout(() => {
-        const responses = isCoalMode ? MOCK_RESPONSES.coal : MOCK_RESPONSES.normal;
-        setResult(responses[Math.floor(Math.random() * responses.length)]);
-        setLoading(false);
-      }, 1000);
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API delay
+      const responses = isCoalMode ? MOCK_RESPONSES.coal : MOCK_RESPONSES.normal;
+      setResult(responses[Math.floor(Math.random() * responses.length)]);
+      setLoading(false);
       return;
     }
 

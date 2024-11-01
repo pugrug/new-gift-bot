@@ -2,44 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes border-blink {
-  0%, 100% { border-color: rgb(220, 38, 38); }
-  50% { border-color: rgb(22, 163, 74); }
+:root {
+  /* 90s Christmas Theme */
+  --retro-gold: #FFD700;
+  --retro-green: #00FF00;
+  --retro-dark-green: #006400;
+  --retro-paper: #FFF8DC;
+  
+  /* Animation Keyframes */
+  --shine-gradient: linear-gradient(
+    45deg,
+    transparent 0%,
+    transparent 45%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 55%,
+    transparent 100%
+  );
 }
 
-.animate-border-blink {
-  animation: border-blink 1s linear infinite;
-}
-
+/* Animations */
 @keyframes shine {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
-/* Add to your globals.css */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 1; }
+  0% { background-position: 200% 50%; }
+  100% { background-position: -200% 50%; }
 }
 
-.sparkle {
-  animation: twinkle 2s ease-in-out infinite;
+@keyframes sparkle {
+  0% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.4; transform: scale(0.8); }
 }
 
-/* Adjust timing for different elements */
-.sparkle:nth-child(2n) {
-  animation-delay: 0.5s;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.sparkle:nth-child(3n) {
-  animation-delay: 1s;
+
+@keyframes borderBlink {
+  0%, 100% { border-color: var(--retro-gold); }
+  50% { border-color: transparent; }
 }
-.sparkle:nth-child(4n) {
-  animation-delay: 1.5s;
-}
+
+/* Utility Classes */
 .animate-shine {
-  background-size: 200% auto;
+  background-image: var(--shine-gradient);
+  background-size: 200% 100%;
   animation: shine 3s linear infinite;
 }
 
-body {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20">🎄</text></svg>'), auto;
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-border-blink {
+  animation: borderBlink 1s ease-in-out infinite;
+}
+
+.sparkle {
+  display: inline-block;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.retro-text-shadow {
+  text-shadow: 2px 2px 0px var(--retro-dark-green);
+}
+
+.retro-border {
+  border: 3px solid var(--retro-gold);
+  box-shadow: 4px 4px 0px var(--retro-dark-green);
 }

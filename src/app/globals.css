@@ -3,19 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Default theme variables */
+  --color-primary: #ff0000;
+  --color-secondary: #00ff00;
+  --color-background: #ffffff;
+  --color-text: #000000;
+  --color-accent: #ffd700;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+.coal-mode {
+  filter: brightness(0.9);
 }
